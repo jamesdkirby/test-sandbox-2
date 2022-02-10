@@ -752,6 +752,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+   
     <script>
 (function(apiKey){
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
@@ -763,31 +764,30 @@
         // Call this whenever information about your visitors becomes available
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
-            visitor: {
-                id:              'VISITOR-UNIQUE-ID'   // Required if user is logged in
-                // email:        // Recommended if using Pendo Feedback, or NPS Email
-                // full_name:    // Recommended if using Pendo Feedback
-                // role:         // Optional
+            visitor:{
+  id: user.ID,
+  email: user.email,
+  firstName: first.name,
+  lastName: last.name,
+  full_name: user.email,
+  role: user.accessLevel,
+  creationDate: user.creationDate
+},
 
-                // You can add any additional visitor level key-values here,
-                // as long as it's not one of the above reserved names.
-            },
-
-            account: {
-                id:           'ACCOUNT-UNIQUE-ID' // Required if using Pendo Feedback
-                // name:         // Optional
-                // is_paying:    // Recommended if using Pendo Feedback
-                // monthly_value:// Recommended if using Pendo Feedback
-                // planLevel:    // Optional
-                // planPrice:    // Optional
-                // creationDate: // Optional
-
-                // You can add any additional account level key-values here,
-                // as long as it's not one of the above reserved names.
-            }
+account:{
+  id: account.ID,
+  name: account.name,
+  industry: aaccount.industry,
+  creationDate: creation.date,
+  contractStartDate: start.date,
+  is_paying: account.is_paying,
+  monthly_value: account.monthly_value,
+  planLevel: account.subscriptionCost,
+}
         });
 })('ace81929-9318-4c15-4d0d-366751c12f3d');
 </script>    
+    
 </body>
 
 </html>

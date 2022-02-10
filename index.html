@@ -19,36 +19,6 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    
-    <script>
-(function(apiKey){
-    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
-    v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-        o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
-        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-
-        // Call this whenever information about your visitors becomes available
-        // Please use Strings, Numbers, or Bools for value types.
-       pendo.initialize({
-  visitor:{
-  id: user.ID,
-  email: user.email,
-  full_name: user.email,
-  role: user.accessLevel,
-  creationDate: user.creationDate
-},
-  account:{
-  id: account.ID,
-  name: account.name,
-  is_paying: account.is_paying,
-  monthly_value: account.monthly_value,
-  planLevel:    account.subscriptionCost,
-  contractStartDate: start.date,
-}
-        });
-})('ace81929-9318-4c15-4d0d-366751c12f3d');
-</script>
 </head>
 
 <body id="page-top">
@@ -782,7 +752,53 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    
+    // Add to the end of your `<body>` tag just before the `</body>`...
 
+    <script>
+// Immediately-invoked function expression to prevent scope pollution...
+(function(apiKey){ // <-- passed in at the bottom
+    /**
+     * Bootstrap the `pendo` namespace for deferred execution of common methods
+     * until the Agent is fully loaded from the CDN. The deferred methods are:
+     * - initialize
+     * - identify
+     * - updateOptions
+     * - pageLoad
+     */
+    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+    v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
+        o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+        // Create a `<script>` tag linked to your application-specific Agent build from our CDN...
+        y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);
+    })(window,document,'script','pendo');
+
+    // Call this whenever information about your visitors becomes available
+    // Please use Strings, Numbers, or Bools for value types.
+    pendo.initialize({
+        visitor: {
+            id:              'VISITOR-UNIQUE-ID'   // Required if user is logged in
+            // email:        // Optional
+            // role:         // Optional
+
+            // You can add any additional visitor level key-values here,
+            // as long as it's not one of the above reserved names.
+        },
+
+        account: {
+            id:           'ACCOUNT-UNIQUE-ID' // Highly recommended
+            // name:         // Optional
+            // planLevel:    // Optional
+            // planPrice:    // Optional
+            // creationDate: // Optional
+
+            // You can add any additional account level key-values here,
+            // as long as it's not one of the above reserved names.
+        }
+    });
+})('ace81929-9318-4c15-4d0d-366751c12f3d'); // <--- You should change this.
+</script>
 </body>
 
 </html>

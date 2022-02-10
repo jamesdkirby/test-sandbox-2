@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +17,43 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+<script>
+(function(apiKey){
+    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+    v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+        o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+        y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo')
+  
+        // Call this whenever information about your visitors becomes available
+        // Please use Strings, Numbers, or Bools for value types.
+        pendo.initialize({
+            visitor:{
+  id: user.ID,
+  email: user.email,
+  firstName: first.name,
+  lastName: last.name,
+  full_name: user.email,
+  role: user.accessLevel,
+  creationDate: user.creationDate
+},
+
+account:{
+  id: account.ID,
+  name: account.name,
+  industry: aaccount.industry,
+  creationDate: creation.date,
+  contractStartDate: start.date,
+  is_paying: account.is_paying,
+  monthly_value: account.monthly_value,
+  planLevel: account.subscriptionCost,
+}
+        });
+})('ace81929-9318-4c15-4d0d-366751c12f3d');
+</script>    
+    
+    
 </head>
 
 <body id="page-top">
@@ -752,43 +787,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-   
-    <script>
-(function(apiKey){
-    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
-    v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-        o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
-        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-    </script>
-<script>
-        // Call this whenever information about your visitors becomes available
-        // Please use Strings, Numbers, or Bools for value types.
-        pendo.initialize({
-            visitor:{
-  id: user.ID,
-  email: user.email,
-  firstName: first.name,
-  lastName: last.name,
-  full_name: user.email,
-  role: user.accessLevel,
-  creationDate: user.creationDate
-},
-
-account:{
-  id: account.ID,
-  name: account.name,
-  industry: aaccount.industry,
-  creationDate: creation.date,
-  contractStartDate: start.date,
-  is_paying: account.is_paying,
-  monthly_value: account.monthly_value,
-  planLevel: account.subscriptionCost,
-}
-        });
-})('ace81929-9318-4c15-4d0d-366751c12f3d');
-</script>    
-    
 </body>
 
 </html>

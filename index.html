@@ -31,20 +31,22 @@
         // Call this whenever information about your visitors becomes available
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
-visitor: {
-  id:              $user.ID,
-  email:           $user.email,
-  full_name:       $user.full_name,
-  role:            $user.accessLevel,
-  creationDate:    $user.creationDate,
-  tags:            $user.accessLevel','$user.creationDate
+visitor:{
+  id: user.ID,
+  email: user.email,
+  full_name: user.email,
+  role: user.accessLevel,
+  creationDate: user.creationDate
 },
 
-account: {
-  id:           $account.ID,
-  name:         $account.name,
-  is_paying:    $account.is_paying,
-  monthly_value:$account.monthly_value',
+account:{
+  id: account.ID,
+  name: account.name,
+  is_paying: account.is_paying,
+  monthly_value: account.monthly_value,
+  planLevel:    account.subscriptionCost,
+  contractStartDate: start.date,
+  
 }
         });
 })('ace81929-9318-4c15-4d0d-366751c12f3d');

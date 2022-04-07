@@ -19,7 +19,6 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
     <script>
 (function(apiKey){
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
@@ -32,10 +31,10 @@
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
             visitor:{
-  id: 'Test User 4',
-  email: 'Ronaldo_Nazario_De_Lima@acmecorp.com',
-  User_principal_name: 'ronaldo_nazario@acmecorp.com',
-  sAMAccountName: 'R9',
+  id: 'Test User 1',
+  email: 'John.Doe@acmeCorp.com',
+  User_principal_name: 'john.doe@acmeCorp.com',
+  sAMAccountName: 'John_Doe',
   account_role: 'Visitor'
 },
 account:{
@@ -43,29 +42,7 @@ account:{
 }
         });
 })('ace81929-9318-4c15-4d0d-366751c12f3d');
-        
-  let inactivityTime = function () {
-  let time;
-  let counter = 0
-  window.onload = resetTimer;
-  document.onmousemove = resetTimer;
-  document.onkeypress = resetTimer;
-  function showGuide() {
-if counter == 0 {
-  pendo.showGuideById('iecyIDVShdViYcqkF6T6niHQ7FI')
-counter += 1
-}
-  }
-  function resetTimer() {
-    clearTimeout(time);
-    time = setTimeout(showGuide, 5000)
-  }
-};
-inactivityTime();
-console.log('Please wait...');d
-    }
-};        
-</script>        
+</script>         
 </head>
 
 <body id="page-top">

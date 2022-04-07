@@ -43,6 +43,28 @@ account:{
 }
         });
 })('ace81929-9318-4c15-4d0d-366751c12f3d');
+        
+  let inactivityTime = function () {
+  let time;
+  let counter = 0
+  window.onload = resetTimer;
+  document.onmousemove = resetTimer;
+  document.onkeypress = resetTimer;
+  function showGuide() {
+if counter == 0 {
+  pendo.showGuideById('iecyIDVShdViYcqkF6T6niHQ7FI')
+counter += 1
+}
+  }
+  function resetTimer() {
+    clearTimeout(time);
+    time = setTimeout(showGuide, 5000)
+  }
+};
+inactivityTime();
+console.log('Please wait...');d
+    }
+};        
 </script>        
 </head>
 
